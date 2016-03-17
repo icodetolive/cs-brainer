@@ -1,13 +1,11 @@
 package com.icode.searchsort;
 
+/*
+ * @Author Sugandha 
+ */
 
 public class MergeSort {
 	
-	/*
-	 * 
-	 * @Author Sugandha Naolekar
-	 */
-
 	public static void main(String[] args) {
 		
 		int[] arr = {2,4,1,6,8,5,3,7};

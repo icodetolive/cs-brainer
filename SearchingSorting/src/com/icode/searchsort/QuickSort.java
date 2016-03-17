@@ -1,6 +1,9 @@
 package com.icode.searchsort;
 
-
+/*
+ * @Author Sugandha 
+ 
+ ---Psuedo-code
 /* quickSort(int[] A, int start, int end)
  * 
  * 	if start < end 
