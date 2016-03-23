@@ -167,7 +167,7 @@ public class BinarySearchTree {
 		
 		if(root == null) {
 			return 0;
-		}
+		} 
 		return Math.max(getHeight(root.left), getHeight(root.right) + 1);
 	}
 	
