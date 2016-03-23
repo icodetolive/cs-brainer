@@ -1,7 +1,4 @@
 package com.icode.bst;
-/*
- * @Author Sugandha
- */
 
 public class BSTNode {
 
@@ -10,7 +7,6 @@ public class BSTNode {
 	
 	public BSTNode(int data) {
 		this.data = data;
-		this.left = null;
-		this.right = null;
+		this.left = this.right = null;
 	}
 }
