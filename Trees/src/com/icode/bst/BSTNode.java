@@ -1,5 +1,7 @@
 package com.icode.bst;
-
+/*
+ * @Author Sugandha
+ */
 public class BSTNode {
 
 	int data;
