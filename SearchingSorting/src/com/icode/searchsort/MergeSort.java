@@ -1,5 +1,5 @@
 package com.icode.searchsort;
-
+//For detailed demonstration refer: https://www.youtube.com/watch?v=TzeBrDU-JaY
 /*
  * @Author Sugandha 
  */
@@ -51,7 +51,7 @@ public class MergeSort {
 		int rightLen = right.length;
 		int i = 0; //index of smallest unpicked element in left array
 		int j = 0; //index of smallest unpicked element in right array
-		int k = 0; //index of the oroginal array
+		int k = 0; //index of the original array
 		
 		while(i < leftLen  && j < rightLen) {
 			
