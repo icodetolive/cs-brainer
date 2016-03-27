@@ -1,5 +1,5 @@
 package com.icode.searchsort;
-
+//For detailed demonstration refer: https://www.youtube.com/watch?v=COk73cpQbFQ
 /*
  * @Author Sugandha 
  
@@ -12,9 +12,10 @@ package com.icode.searchsort;
  * 		quickSort(A,pIndex+1,end)
  * 
  * partition():
- * 	Selects the pivot. In this case, the last element of the array
- *  Puts it in the right place by putting all the elements <= pivot on left side of pivot and 
- *  all the elements > pivot to right side
+ * 	Selects the pivot. Executes the partition() which returns the pivotIndex - ideally where the pivot element should be placed.
+ *  In this case, the last element of the array is the pivot.
+ *  After the partition(), pivot is placed in its desired position.
+ *  And then quicksort is run to place elements > pivot on right side and elements < pivot on left side.
  *  
  * partition(A, start, end)
  * 	pivot = A[end] 
