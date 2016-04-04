@@ -66,9 +66,11 @@ public class BinarySearchTree {
 		
 		if(root.data > key) {
 			root.left = insertRec(root.left, key);
+			root.left.parent = root;
 		}
 		else if(root.data < key) {
 			root.right = insertRec(root.right, key);
+			root.right.parent = root;
 		}
 		return root;
 	}
@@ -131,7 +133,7 @@ public class BinarySearchTree {
 			return;
 		}
 		traverseInorder(root.left);
-		System.out.println(root.data);
+		System.out.print(root.data+" ");
 		traverseInorder(root.right);
 	}
 	
@@ -140,7 +142,7 @@ public class BinarySearchTree {
 		if (root == null) {
 			return;
 		}
-		System.out.println(root.data);
+		System.out.print(root.data+" ");
 		traversePreorder(root.left);
 		traversePreorder(root.right);
 	}
@@ -152,7 +154,7 @@ public class BinarySearchTree {
 		}
 		traversePostorder(root.left);
 		traversePostorder(root.right);
-		System.out.println(root.data);
+		System.out.print(root.data+" ");
 	}
 	
 	public int getSize(BSTNode root) {
