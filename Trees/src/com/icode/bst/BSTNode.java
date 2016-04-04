@@ -6,6 +6,7 @@ public class BSTNode {
 
 	int data;
 	BSTNode left, right;
+	BSTNode parent;
 	
 	public BSTNode(int data) {
 		this.data = data;
