@@ -1,17 +1,4 @@
 package com.icode.bst;
-/*
- * @Author Sugandha
- * 
- * Includes basic operations like: 
- * 1. Insert, Search - (Iterative and Recursive) 
- * 2. Recursive DFS traversals 
- * 3. Height of the tree(recursive)
- * 4. Size of the tree(recursive)
- * 
- */
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
 
 public class BinarySearchTree {
 	
