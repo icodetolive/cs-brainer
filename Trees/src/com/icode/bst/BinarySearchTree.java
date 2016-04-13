@@ -37,7 +37,7 @@ public class BinarySearchTree {
 				curr = curr.right;
 			}
 			else if(curr.data > key) {
-				curr = curr.left;
+				curr = curr.left;	
 			}
 			else {
 				curr.data = key;
