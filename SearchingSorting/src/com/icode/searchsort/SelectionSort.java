@@ -15,9 +15,10 @@ public class SelectionSort {
 	
 	private static void selectionSort(int[] a, int len) {
 		
-		for(int i = 0; i < len-1; i++) { //In n-1th position, the number will already be sorted
+		for(int i = 0; i < len-1; i++) { //The minimum no. will be always placed in its apt position
+										// Basically, one number will already be sorted
 			int min = i;
-			for(int j = i+1; j<len; j++) {
+			for(int j = i+1; j<len; j++) { //Ignore the ith, element. Since, that is the sorted elt.
 				if(a[j] < a[min]) {
 					min = j; //update the index of minimum element
 				}
