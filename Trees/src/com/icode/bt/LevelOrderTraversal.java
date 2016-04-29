@@ -1,6 +1,12 @@
 package com.icode.bt;
 /*
  *  @Author Sugandha
+ *  
+ *  1) Simple level order traversal using Queue
+ *  2) Level by level traversal using Queue delimiter technique
+ *  3) Level by level traversal using nodecount technique
+ *  4) Level order traversal in spiral/zigzag fashion
+ *  5) Level order traversal in reverse fashion (bottom up traversal)
  */
 
 import java.util.LinkedList;
@@ -27,11 +33,38 @@ public class LevelOrderTraversal {
 		root.left.right = new BTNode('d');
 		root.right.left = new BTNode('e');
 		root.right.right = new BTNode('f');
+		root.right.right.right = new BTNode('g');
 		
 		//tree.traverseLevels(root);
 		//tree.traverseLevelByLevel1(root);
-		//tree.traverseLevelByLevel2(root);
-		tree.traverseSpirally(root);
+		tree.traverseLevelByLevel2(root);
+		//tree.traverseSpirally(root);
+		//tree.traverseReverse(root);
+	}
+	
+	public void traverseReverse(BTNode root) {
+		if(root == null) {
+			return;
+		}
+		BTNode curr = root;
+		Queue<BTNode> q = new LinkedList<BTNode>();
+		Stack<BTNode> s = new Stack<BTNode>();
+		q.add(root);
+		while(!q.isEmpty()) {
+			curr = q.remove();
+			if(curr.right != null) {
+				q.add(curr.right);
+			}
+			if(curr.left != null) {
+				q.add(curr.left);
+			}
+			s.push(curr);
+		}
+		
+		while(!s.isEmpty()) {
+			curr = s.pop();
+			System.out.print(curr.data+" ");
+		}
 	}
 	
 	public void traverseSpirally(BTNode root) {
@@ -122,10 +155,16 @@ public class LevelOrderTraversal {
 	
 	//Using a node count technique
 	public void traverseLevelByLevel2(BTNode root) {
+		int maxWidth = 0;
+		int width;
 		Queue<BTNode> q = new LinkedList<BTNode>();
 		q.add(root);
 		while(true) {
 			int nodeCount = q.size();
+			width = nodeCount;
+			if(maxWidth < width) {
+				maxWidth = width;
+			}
 			if(nodeCount == 0) {
 				break;
 			}
@@ -142,5 +181,6 @@ public class LevelOrderTraversal {
 			}
 			System.out.println();
 		} 
+		System.out.println("Max width is: "+maxWidth);
 	}
 }
