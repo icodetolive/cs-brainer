@@ -1,4 +1,13 @@
+/*
+ * Basic Functionalities of binary tree
+ * 
+ * @Author Sugandha Naolekar
+ */
+
 package com.icode.bst;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinarySearchTree {
 	
@@ -152,12 +161,52 @@ public class BinarySearchTree {
 		return (getSize(root.left) + getSize(root.right) + 1);
 	}
 	
-	public int getHeight(BSTNode root) {
+	public int getHeightRec(BSTNode root) {
 		
 		if(root == null) {
 			return 0;
 		} 
-		return Math.max(getHeight(root.left), getHeight(root.right) + 1);
+		return Math.max(getHeightRec(root.left), getHeightRec(root.right) + 1);
+	}
+	
+	/*
+	 * Algorithm:
+	 * 1. Traverse the tree level by leve by using queue and poushing the root node at first
+	 * 2. At each level, get the count of the nodes/queue
+	 * If the nodeCount at that level is 0
+	 * 		Increment height
+	 * 		Pop the node from the queue
+	 * 		Enqueue its children
+	 * 		Decrement the nodeCount
+	 * Else
+	 * 	return current height
+	 */
+	public int getHeightI(BSTNode root) {
+		
+		if(root == null) {
+			return 0;
+		}
+		int maxHeight = 0;
+		Queue<BSTNode> q = new LinkedList<BSTNode>();
+		q.offer(root);
+		while(true) {
+			int nodeCount = q.size();
+			if(nodeCount == 0) {
+				return maxHeight;
+			}
+			
+			maxHeight++;
+			while(nodeCount > 0) {
+				BSTNode node = q.poll();
+				if(node.left != null) {
+					q.offer(node.left);
+				}
+				if(node.right != null) {
+					q.offer(node.right);
+				}
+				nodeCount--;
+			}
+		}
 	}
 	
 //	
@@ -165,13 +214,13 @@ public class BinarySearchTree {
 	public static void main(String[] args) {
 		BinarySearchTree tree = new BinarySearchTree();
 		tree.insertR(1);
-		tree.insertR(5);
 		tree.insertR(2);
-		tree.insertR(7);
+		tree.insertR(3);
 		tree.insertR(4);
+		tree.insertR(5);
 		tree.traverseInorder(tree.getRoot());
 		tree.searchR(22);
-		System.out.println("Size:: "+tree.getSize(tree.getRoot()));
-		System.out.println(tree.getHeight(tree.getRoot()));
+		//System.out.println("Size:: "+tree.getSize(tree.getRoot()));
+		System.out.println(tree.getHeightI(tree.getRoot()));
 	}
 }
