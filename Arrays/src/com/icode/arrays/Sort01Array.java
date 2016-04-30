@@ -1,5 +1,7 @@
 package com.icode.arrays;
 
+import java.util.HashMap;
+
 /*
  * @Author Sugandha
  * 
