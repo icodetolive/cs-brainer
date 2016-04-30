@@ -161,17 +161,17 @@ public class BinarySearchTree {
 		return (getSize(root.left) + getSize(root.right) + 1);
 	}
 	
-	public int getHeightRec(BSTNode root) {
+	public int getMaxHeightRec(BSTNode root) {
 		
 		if(root == null) {
 			return 0;
 		} 
-		return Math.max(getHeightRec(root.left), getHeightRec(root.right) + 1);
+		return Math.max(getMaxHeightRec(root.left), getMaxHeightRec(root.right)) + 1;
 	}
 	
 	/*
 	 * Algorithm:
-	 * 1. Traverse the tree level by leve by using queue and poushing the root node at first
+	 * 1. Traverse the tree level by level by using queue and pushing the root node at first
 	 * 2. At each level, get the count of the nodes/queue
 	 * If the nodeCount at that level is 0
 	 * 		Increment height
@@ -181,7 +181,7 @@ public class BinarySearchTree {
 	 * Else
 	 * 	return current height
 	 */
-	public int getHeightI(BSTNode root) {
+	public int getMaxHeightI(BSTNode root) {
 		
 		if(root == null) {
 			return 0;
@@ -209,18 +209,66 @@ public class BinarySearchTree {
 		}
 	}
 	
-//	
+	public int getMinHeightRec(BSTNode root) {
+		
+		if(root == null) {
+			return 0;
+		}
+		
+		if(root.left == null) {
+			return getMinHeightRec(root.right) + 1;
+		}
+		
+		if(root.right == null) {
+			return getMinHeightRec(root.left) + 1;
+		}
+		
+		return Math.min(getMinHeightRec(root.left), getMinHeightRec(root.right)) + 1;
+	}
+	
+	private static boolean isLeaf(BSTNode node) {
+		return (node.left == null && node.right == null);
+	}
+	
+	public int getMinHeightI(BSTNode root) {
+		if(root == null) {
+			return 0;
+		}
+		
+		Queue<BSTNode> nodesQueue = new LinkedList<BSTNode>();
+		Queue<Integer> depthOfCurrentNode = new LinkedList<Integer>();
+		nodesQueue.offer(root);
+		depthOfCurrentNode.offer(1);
+		while(!nodesQueue.isEmpty()) {
+			BSTNode currNode = nodesQueue.poll();
+			int currDepth = depthOfCurrentNode.poll();
+			
+			if(isLeaf(currNode)) {
+				return currDepth;
+			}
+			if(currNode.left != null) {
+				nodesQueue.offer(currNode.left);
+				depthOfCurrentNode.offer(currDepth+1);
+			}
+			if(currNode.right != null) {
+				nodesQueue.offer(currNode.right);
+				depthOfCurrentNode.offer(currDepth+1);
+			}
+		}
+		
+		return 0;
+	}
 
 	public static void main(String[] args) {
 		BinarySearchTree tree = new BinarySearchTree();
-		tree.insertR(1);
-		tree.insertR(2);
-		tree.insertR(3);
+		tree.insertR(10);
+		tree.insertR(8);
+		tree.insertR(12);
 		tree.insertR(4);
-		tree.insertR(5);
+		tree.insertR(9);
 		tree.traverseInorder(tree.getRoot());
 		tree.searchR(22);
 		//System.out.println("Size:: "+tree.getSize(tree.getRoot()));
-		System.out.println(tree.getHeightI(tree.getRoot()));
+		System.out.println(tree.getMaxHeightRec(tree.getRoot()));
 	}
 }
