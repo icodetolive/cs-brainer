@@ -1,3 +1,7 @@
+//Reverse an array
+/*
+ * @Author Sugandha Naolekar
+ */
 package com.icode.arrays;
 
 public class ArrayReverser {
