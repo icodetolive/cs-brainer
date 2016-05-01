@@ -24,8 +24,8 @@ public class NestedListWeightSum implements NestedList{
 		
 		
 		NestedListWeightSum list = new NestedListWeightSum();
-		//int result = list.getSumI(nestedList);
-		int result = list.getSumRec(nestedList);
+		int result = list.getSumI(nestedList);
+//		int result = list.getSumRec(nestedList);
 		System.out.println(result);
 	}
 	
@@ -75,6 +75,7 @@ public class NestedListWeightSum implements NestedList{
 				else {
 					LinkedList<Object> subList = (LinkedList<Object>) item;
 					q.addAll(subList);
+					System.out.println(q.size() + " "+q);
 				}
 			}
 			level++;
