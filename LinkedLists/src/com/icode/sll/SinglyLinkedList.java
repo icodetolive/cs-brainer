@@ -65,7 +65,7 @@ public class SinglyLinkedList {
 			curr = curr.next;
 		}
 	}
-
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList list = new SinglyLinkedList();
