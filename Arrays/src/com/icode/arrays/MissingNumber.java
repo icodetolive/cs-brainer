@@ -9,10 +9,11 @@ public class MissingNumber {
 
 	public static void main(String[] args) {
 		
-		//The given array contains elements between range min - max and in unsorted fashion.
+		//The given array contains elements between range min - max, inclusive, unique and in unsorted fashion.
 //		Find the missing element in array.
 		//Assumptions: 
 		//    a. There is only one element that is missing. 
+	
 		int[] inputArray = {9,-1,3,2,-4,5,0};
 		int min = -10;
 		int max = 10;
@@ -37,3 +38,6 @@ public class MissingNumber {
 		return result;
 	}
 }
+
+//Space complexity: O(n) - n length of inputArray
+//Time complexity: O(max - min) or number of elements in the given range say O(R)
