@@ -15,20 +15,23 @@ public class IterativeTraversal {
 		BTNode curr = root;
 		Stack<BTNode> s = new Stack<BTNode>();
 		while(true) {
-			while(curr != null) {
+			if(curr != null) {
 				s.push(curr);
 				curr = curr.left;
 			}
-			if(s.isEmpty()) {
-				break;
+			else {
+				if(s.isEmpty()) {
+					break;
+				}
+				curr = s.pop();
+				System.out.print(curr.data+" ");
+				curr = curr.right;
 			}
-			curr = s.pop();
-			System.out.print(curr.data+" ");
-			curr = curr.right;
 		}
 	}
 	
-	public void traversePostorder(BTNode root) {
+	//Postorder traversal using 2 stacks
+	public void traversePostorder1(BTNode root) {
 		
 		if(root == null) {
 			return;
@@ -52,6 +55,8 @@ public class IterativeTraversal {
 			System.out.print(curr.data+" ");
 		}
 	}
+	
+	//postorder traversal using one stack
 	
 	public void traversePreorder(BTNode root) {
 		
