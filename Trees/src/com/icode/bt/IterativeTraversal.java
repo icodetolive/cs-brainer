@@ -57,6 +57,66 @@ public class IterativeTraversal {
 	}
 	
 	//postorder traversal using one stack
+	//In this variation, we actually modify the original tree structure by everytime pushing the children of the root node
+	//and then disconnecting the root from its children
+	//Reference: http://www.programcreek.com/2012/12/leetcode-solution-of-iterative-binary-tree-postorder-traversal-in-java/ (Solution 2)
+	public void traversePostorder2(BTNode root) {
+		if(root == null) {
+			return;
+		}
+		
+		Stack<BTNode> stack = new Stack<BTNode>();
+        stack.push(root);
+        while(!stack.isEmpty()) {
+        	BTNode temp = stack.peek();
+        	
+            //if it is a leaf node, pop it and add it's value to the list
+            if(temp.left == null && temp.right == null) {
+            	BTNode poppedNode = stack.pop();
+                System.out.println(poppedNode.data);
+            }
+            //disconnect the root from its children after pushing its children into the stack
+            else {
+                if(temp.right != null) {
+                    stack.push(temp.right);
+                    temp.right = null;
+                }
+                if(temp.left != null) {
+                    stack.push(temp.left);
+                    temp.left = null;
+                }
+            }
+        }
+	}
+	
+	//Using one stack
+	//Reference: https://www.youtube.com/watch?v=xLQKdq0Ffjg&index=18&list=PLrmLmBdmIlpv_jNDXtJGYTPNQ2L1gdHxu 
+	public void traversePostorder3(BTNode root) {
+		BTNode curr = root;
+        Stack<BTNode> stack = new Stack<BTNode>();
+        
+        while(curr != null || !stack.isEmpty()) {
+            if(curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            else {
+            	BTNode temp = stack.peek().right;
+                if(temp == null) {
+                    temp = stack.pop();
+                   System.out.println(temp.data);
+                    while(!stack.isEmpty() && temp == stack.peek().right) {
+                        temp = stack.pop();
+                        System.out.println(temp.data);
+                    }
+                }
+                else {
+                    curr = temp;
+                }
+            }
+        }
+    }
+	
 	
 	public void traversePreorder(BTNode root) {
 		
@@ -98,8 +158,8 @@ public class IterativeTraversal {
 		root.right.right = new BTNode('f');
 		
 		//tree.traverseInorder(root);
-		//tree.traversePostorder(root);
-		tree.traversePreorder(root);
+		tree.traversePostorder3(root);
+//		tree.traversePreorder(root);
 	}	
 }
 	
