@@ -22,7 +22,9 @@ public class LevelOrderTraversal {
 		       *          /   \ 
 		       *		 b     c
 		       			  \   / \
-		       			   d e   f 
+		       			   d e   f
+		       			          \
+		       			           g 
 		       			   
 		       */
 		
@@ -36,13 +38,14 @@ public class LevelOrderTraversal {
 		root.right.right.right = new BTNode('g');
 		
 		//tree.traverseLevels(root);
-		//tree.traverseLevelByLevel1(root);
-		tree.traverseLevelByLevel2(root);
-		//tree.traverseSpirally(root);
-		//tree.traverseReverse(root);
+		//tree.traverseLevelsLineByLine1(root);
+//		tree.traverseLevelsLineByLine2(root);
+		tree.traverseLevelsSpirally(root);
+		//tree.traverseLevelsBottomUp(root);
+		//tree.traverseLevelsBottomUpLineByLine(root);
 	}
 	
-	public void traverseReverse(BTNode root) {
+	public void traverseLevelsBottomUp(BTNode root) {
 		if(root == null) {
 			return;
 		}
@@ -67,36 +70,38 @@ public class LevelOrderTraversal {
 		}
 	}
 	
-	public void traverseSpirally(BTNode root) {
+	public void traverseLevelsSpirally(BTNode root) {
 		
 		if(root == null) {
 			return;
 		}
 		
-		Stack<BTNode> stack1 = new Stack<BTNode>(); //R to L
-		Stack<BTNode> stack2 = new Stack<BTNode>(); //L to R
+		Stack<BTNode> stack1 = new Stack<BTNode>(); //L to R
+		Stack<BTNode> stack2 = new Stack<BTNode>(); //R to L
 		stack1.push(root);
 		while(!stack1.isEmpty() || !stack2.isEmpty()) {
 			while(!stack1.isEmpty()) {
 				BTNode node = stack1.pop();
-				System.out.print(node.data);
-				if(node.right != null) {
-					stack2.push(node.right);
-				}
+				System.out.print(node.data+" ");
 				if(node.left != null) {
 					stack2.push(node.left);
 				}
+				if(node.right != null) {
+					stack2.push(node.right);
+				}
 			}
+			System.out.println();
 			while(!stack2.isEmpty()) {
 				BTNode node = stack2.pop();
-				System.out.print(node.data);
-				if(node.left != null) {
-					stack1.push(node.left);
-				}
+				System.out.print(node.data+" ");
 				if(node.right != null) {
 					stack1.push(node.right);
 				}
+				if(node.left != null) {
+					stack1.push(node.left);
+				}
 			}
+			System.out.println();
 		}
 	}
 	
@@ -120,9 +125,9 @@ public class LevelOrderTraversal {
 	}
 
 	//Using a delimiter technique
-	//Keep pushing in the queue node's children until you see a delimiter.
+	//Keep pushing node's children in the queue until you see a delimiter.
 	//if a node == delimter, push delimtiere in queue and print a new line
-	public void traverseLevelByLevel1(BTNode root) {
+	public void traverseLevelsLineByLine1(BTNode root) {
 		if(root == null) {
 			return;
 		}
@@ -154,7 +159,8 @@ public class LevelOrderTraversal {
 	}
 	
 	//Using a node count technique
-	public void traverseLevelByLevel2(BTNode root) {
+	//Can also be used to find the max width
+	public void traverseLevelsLineByLine2(BTNode root) {
 		int maxWidth = 0;
 		int width;
 		Queue<BTNode> q = new LinkedList<BTNode>();
