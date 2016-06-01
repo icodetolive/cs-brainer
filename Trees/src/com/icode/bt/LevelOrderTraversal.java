@@ -2,11 +2,12 @@ package com.icode.bt;
 /*
  *  @Author Sugandha
  *  
- *  1) Simple level order traversal using Queue
- *  2) Level by level traversal using Queue delimiter technique
- *  3) Level by level traversal using nodecount technique
- *  4) Level order traversal in spiral/zigzag fashion
- *  5) Level order traversal in reverse fashion (bottom up traversal)
+ *  1) Print nodes at all levels (traverseLevels())
+ *  2) Print levels of tree line by line(traverseLevelsLineByLine1()) => uses delimeter technique
+ *  3) Print levels line by line (traverseLevelsLineByLine2()) => Uses nodecount technique
+ *  4) Print levels in spiral fashion (traverseSpirally())
+ *  5) Print levels in reverse order(bottom up) fashion (traverseLevelsBottomUp())
+ *  6) Print reversed levels line by line(traverseLevelesBottomUpLineByLine())
  */
 
 import java.util.LinkedList;
