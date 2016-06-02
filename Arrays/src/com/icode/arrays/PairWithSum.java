@@ -6,6 +6,7 @@ package com.icode.arrays;
  */
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class PairWithSum {
 
@@ -13,6 +14,7 @@ public class PairWithSum {
 		
 		int[] arr = {7,3,8,2,4};
 		int weightLimit = 11;
+		
 		Pair p = findPairWithSum(arr, weightLimit);
 		if(p.x == p.y && p.x == -1) {
 			System.out.println("Pair not found");
@@ -20,6 +22,22 @@ public class PairWithSum {
 		else {
 			System.out.println("Pair:: "+p.x + " "+p.y);
 		}
+	}
+	
+	public static boolean isPairWithSum(int[] a, int sum) {
+		if(a == null || a.length == 0) {
+			return false;
+		}
+		HashSet<Integer> set = new HashSet<Integer>();
+		for(int i = 0; i < a.length; i++) {
+			if(!set.contains(sum - a[i])) {
+				set.add(a[i]);
+			}
+			else {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public static Pair findPairWithSum(int[] a, int sum) {
