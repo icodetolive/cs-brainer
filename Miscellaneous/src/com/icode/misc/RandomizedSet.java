@@ -24,46 +24,55 @@ public class RandomizedSet<T> {
 
 	public static void main(String[] args) {
 		
-		RandomizedSet container = new RandomizedSet();
-		container.add('1');
-		String value = container.delete('1').toString();
+		RandomizedSet<Integer> container = new RandomizedSet<Integer>();
+		container.add(1);
+		container.add(3);
+		container.add(6);
+		container.add(8);
+		String value = container.delete(6).toString();
 		System.out.println("Deleted value: "+value);
+		System.out.println("Random value: "+container.getRandom());
 	}
 	
 	public void add(T value) {
 		if(!contains(value)) {
-			int lastIndex = list.size();
+			int lastIndex = list.size() - 1;
 			map.put(value, lastIndex);
 			list.add(value);
 		}
 	}
 	
-	public boolean contains(T val) {
-		if(val == null) {
+	public boolean contains(T value) {
+		if(value == null) {
 			throw new NullPointerException();
 		}
-		else {
-			return map.containsKey(val);
-		}
+		return map.containsKey(value);
 	}
 	
-	public T delete(T val) {
-		if(!contains(val)) {
+	public T delete(T value) {
+		if(!contains(value)) {
 			throw new NoSuchElementException();
 		}
-		int index = map.get(val);
+		int index = map.get(value);
 		return deleteValue(index);
 	}
 	
-	private T deleteValue(int currentIndex) {
+	public T deleteValue(int currentIndex) {
 		T currentValue = list.get(currentIndex);
 		int lastIndex = list.size() - 1;
 		T lastValue = list.get(lastIndex);
 		Collections.swap(list, currentIndex, lastIndex);
 		list.remove(lastIndex);
-		map.put(lastValue, currentIndex);
 		map.remove(currentValue);
+		map.put(lastValue, currentIndex);
 		return currentValue;
 	}
-
+	
+	public T getRandom() {
+		if(map.isEmpty()) {
+			throw new NoSuchElementException();
+		}
+		int randomIndex = rand.nextInt(list.size());
+		return list.get(randomIndex);
+	}
 }
