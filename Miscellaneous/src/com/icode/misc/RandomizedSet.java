@@ -75,4 +75,12 @@ public class RandomizedSet<T> {
 		int randomIndex = rand.nextInt(list.size());
 		return list.get(randomIndex);
 	}
+	
+	public T deleteRandom() {
+		if(map.isEmpty()) {
+			throw new NoSuchElementException();
+		}
+		int randomIndex = rand.nextInt(list.size());
+		return deleteValue(randomIndex);
+	}
 }
