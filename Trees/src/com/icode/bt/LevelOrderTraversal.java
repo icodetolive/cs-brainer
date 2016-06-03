@@ -172,9 +172,7 @@ public class LevelOrderTraversal {
 			if(maxWidth < width) {
 				maxWidth = width;
 			}
-//			if(nodeCount == 0) {
-//				break;
-//			}
+			
 			while(nodeCount > 0) {
 				BTNode node = q.remove();
 				System.out.print(node.data+" ");
