@@ -40,8 +40,8 @@ public class LevelOrderTraversal {
 		
 		//tree.traverseLevels(root);
 		//tree.traverseLevelsLineByLine1(root);
-//		tree.traverseLevelsLineByLine2(root);
-		tree.traverseLevelsSpirally(root);
+		tree.traverseLevelsLineByLine2(root);
+		//tree.traverseLevelsSpirally(root);
 		//tree.traverseLevelsBottomUp(root);
 		//tree.traverseLevelsBottomUpLineByLine(root);
 	}
@@ -166,15 +166,15 @@ public class LevelOrderTraversal {
 		int width;
 		Queue<BTNode> q = new LinkedList<BTNode>();
 		q.add(root);
-		while(true) {
+		while(!q.isEmpty()) {
 			int nodeCount = q.size();
 			width = nodeCount;
 			if(maxWidth < width) {
 				maxWidth = width;
 			}
-			if(nodeCount == 0) {
-				break;
-			}
+//			if(nodeCount == 0) {
+//				break;
+//			}
 			while(nodeCount > 0) {
 				BTNode node = q.remove();
 				System.out.print(node.data+" ");
