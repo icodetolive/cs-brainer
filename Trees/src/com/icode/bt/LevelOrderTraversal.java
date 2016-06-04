@@ -44,9 +44,10 @@ public class LevelOrderTraversal {
 		tree.traverseLevelsLineByLine2(root);
 		//tree.traverseLevelsSpirally(root);
 		//tree.traverseLevelsBottomUp(root);
-		//tree.traverseLevelsBottomUpLineByLine(root);
 	}
 	
+	//In order to traverse levels bottom up line by line, 
+	//refer: leetcode problem or http://buttercola.blogspot.com/2014/08/leetcode-binary-tree-level-order_20.html(iterative solution)
 	public void traverseLevelsBottomUp(BTNode root) {
 		if(root == null) {
 			return;
