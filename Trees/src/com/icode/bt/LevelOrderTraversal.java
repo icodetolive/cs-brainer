@@ -41,7 +41,7 @@ public class LevelOrderTraversal {
 		
 		//tree.traverseLevels(root);
 		//tree.traverseLevelsLineByLine1(root);
-		tree.traverseLevelsLineByLine2(root);
+		//tree.traverseLevelsLineByLine2(root);
 		//tree.traverseLevelsSpirally(root);
 		//tree.traverseLevelsBottomUp(root);
 	}
