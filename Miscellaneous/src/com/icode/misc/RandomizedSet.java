@@ -29,9 +29,10 @@ public class RandomizedSet<T> {
 		container.add(3);
 		container.add(6);
 		container.add(8);
-		String value = container.delete(6).toString();
+		System.out.println(container.list.toString());
+		String value = container.delete(3).toString();
 		System.out.println("Deleted value: "+value);
-		System.out.println("Random value: "+container.getRandom());
+		//System.out.println("Random value: "+container.getRandom());
 	}
 	
 	public void add(T value) {
@@ -61,9 +62,14 @@ public class RandomizedSet<T> {
 		T currentValue = list.get(currentIndex);
 		int lastIndex = list.size() - 1;
 		T lastValue = list.get(lastIndex);
+//		swap with the last 
 		Collections.swap(list, currentIndex, lastIndex);
+		//remove the current element in the array
+		//removing the last element is constant.
+//		Hence swap operation was performed, which places the element to be deleted in the last position of list
 		list.remove(lastIndex);
 		map.remove(currentValue);
+		//update the new index value in the map
 		map.put(lastValue, currentIndex);
 		return currentValue;
 	}
@@ -82,5 +88,13 @@ public class RandomizedSet<T> {
 		}
 		int randomIndex = rand.nextInt(list.size());
 		return deleteValue(randomIndex);
+	}
+	
+	public int size() {
+		//should never happen
+		if(map.size() != list.size()) {
+			throw new IllegalStateException();
+		}
+		return list.size();
 	}
 }

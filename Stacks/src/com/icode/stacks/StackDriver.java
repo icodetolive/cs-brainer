@@ -11,7 +11,8 @@ public class StackDriver {
 		stack.push(30);
 		stack.push(40);
 		stack.push(50);
-//		stack.pop();
+		stack.pop();
+		System.out.println(stack.peek().data);
 		//the elements will be printed in reverse order as it is Last in First Out (LIFO)
 		stack.print();
 	}

@@ -66,6 +66,50 @@ public class SinglyLinkedList {
 		}
 	}
 	
+	/*
+	 * 1. Initialize prev and next pointers to null intially
+	 * Assign head to curr pointer
+	 * while iterating through each of the nodes of the list, change
+	 * 	 currunt's next to prev
+	 * 	 prev to curr
+	 * 	 curr to next
+	 * Mark head to prev
+	 */
+	public SLLNode reverseI(SLLNode head) {
+		SLLNode prev = null;
+		SLLNode next = null;
+		SLLNode curr = head;
+		while(curr != null) {
+			next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+		}
+		head = prev;
+		return head;
+	}
+	
+	/*1. Null Check for head or head.next. 
+	 * 	 1.1. If yes, return head 
+	 * 2. Assign head's next node as second node
+	 * 3. Delink head node (head.next = null)
+	 * 4. Recursively call the reverse function by passing the second node. 
+	 * 5. Return the result of it in a rest node pointer 
+	 * 6. set second's next to head node
+	 * 7. Return rest
+	*/ 
+	public SLLNode reverseRec(SLLNode head) {
+		if(head == null || head.next == null) {
+			return head;
+		}
+		SLLNode second = head.next;
+		head.next = null;
+		SLLNode rest = reverseRec(second);
+		second.next = head;
+		
+		return rest;
+	}
+	
 	public static void main(String[] args) {
 		
 		SinglyLinkedList list = new SinglyLinkedList();
@@ -76,5 +120,6 @@ public class SinglyLinkedList {
 		list.display(list.getHead());
 		int size = list.getCountR(list.getHead());
 		System.out.println("Length of list:: "+size);
+		System.out.println(list.reverseI(list.getHead()).data);
 	}
 }

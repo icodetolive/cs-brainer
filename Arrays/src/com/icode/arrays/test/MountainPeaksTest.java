@@ -1,5 +1,8 @@
 package com.icode.arrays.test;
 
+/*
+ * @Author Sugandha Naolekar
+ */
 import static org.junit.Assert.*;
 import com.icode.arrays.MountainPeaks;
 
