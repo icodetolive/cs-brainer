@@ -84,7 +84,7 @@ public class BinarySearchTree {
 				System.out.println("Key found");
 				return true;
 			}
-			else if(curr.data < key) {
+			if(curr.data < key) {
 				curr = curr.right;
 			}
 			else { 
