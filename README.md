@@ -12,4 +12,4 @@ Problems inspired from following portals:
 4. InterviewCake - https://www.interviewcake.com/
 5. Cracking the Coding Interview(book) - http://amzn.to/29guOtY
 6. Programming Interviews Exposed(book) - http://amzn.to/29ZzxSj
-7. Elements of programming(book) - http://amzn.to/2a6lg3V 
+7. Elements of Programming Interviews(book) - http://amzn.to/2a6lg3V 
