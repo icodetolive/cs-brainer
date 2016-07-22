@@ -7,4 +7,9 @@ Please refer INDEX.md file to get the relevant links of the codes segregated as 
 Problems inspired from following portals:
 
 1. Leetcode - https://leetcode.com 
-2. 
+2. GeeksForGeeks - http://www.geeksforgeeks.org/
+3. FreeCodeCamp - https://www.freecodecamp.com
+4. InterviewCake - https://www.interviewcake.com/
+5. Cracking the Coding Interview(book) - http://amzn.to/29guOtY
+6. Programming Interviews Exposed(book) - http://amzn.to/29ZzxSj
+7. Elements of programming(book) - http://amzn.to/2a6lg3V 
