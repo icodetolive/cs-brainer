@@ -2,9 +2,13 @@
 
 This project is a compilation of various problems on Data Structures and Algorithms especially from a technical interview's perspective.
 
+##Getting Started
+
 Please refer INDEX.md file to get the relevant links of the codes segregated as per various topics.
 
-Problems inspired from following portals:
+##Acknowledgements
+
+All the problems are inspired from following resources:
 
 1. Leetcode - https://leetcode.com 
 2. GeeksForGeeks - http://www.geeksforgeeks.org/
