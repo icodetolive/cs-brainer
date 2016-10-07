@@ -1,6 +1,14 @@
 package com.icode.sll;
 /*
  * @Author Sugandha 
+ * 
+ * Basic SLL functions:
+ * 
+ * 1. Push and element in front 
+ * 2. Push and element in end
+ * 3. Get list count (I and R)
+ * 4. Display elements (head to tail)
+ * 5. Reverse list (I and R)
  */
 public class SinglyLinkedList {
 	
