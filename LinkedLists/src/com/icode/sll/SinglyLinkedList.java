@@ -9,6 +9,8 @@ package com.icode.sll;
  * 3. Get list count (I and R)
  * 4. Display elements (head to tail)
  * 5. Reverse list (I and R)
+ * 
+ * Reference
  */
 public class SinglyLinkedList {
 	
@@ -84,17 +86,17 @@ public class SinglyLinkedList {
 	 * Mark head to prev
 	 */
 	public SLLNode reverseI(SLLNode head) {
+		
+		SLLNode curr = head;
 		SLLNode prev = null;
 		SLLNode next = null;
-		SLLNode curr = head;
 		while(curr != null) {
 			next = curr.next;
 			curr.next = prev;
 			prev = curr;
 			curr = next;
 		}
-		head = prev;
-		return head;
+		return prev;
 	}
 	
 	/*1. Null Check for head or head.next. 
@@ -126,8 +128,8 @@ public class SinglyLinkedList {
 		list.pushInFront(3);
 		System.out.println("List contents: ");
 		list.display(list.getHead());
-		int size = list.getCountR(list.getHead());
-		System.out.println("Length of list:: "+size);
-		System.out.println(list.reverseI(list.getHead()).data);
+		SLLNode newHead = list.reverseI(list.getHead());
+		System.out.println("After reversing: ");
+		list.display(newHead);
 	}
 }
