@@ -14,7 +14,7 @@ All the problems are inspired from following resources:
 2. GeeksForGeeks - http://www.geeksforgeeks.org/
 3. FreeCodeCamp - https://www.freecodecamp.com
 4. InterviewCake - https://www.interviewcake.com/
-5. EDRepublic - https://www.edrepublic.com/
+5. Gainlo - http://blog.gainlo.co/index.php/category/coding-interview-questions/
 6. Project Euler - https://projecteuler.net/
 7. Cracking the Coding Interview(book) - http://amzn.to/29guOtY
 8. Programming Interviews Exposed(book) - http://amzn.to/29ZzxSj
