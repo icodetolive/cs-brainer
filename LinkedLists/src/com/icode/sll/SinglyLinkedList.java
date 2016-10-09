@@ -10,7 +10,8 @@ package com.icode.sll;
  * 4. Display elements (head to tail)
  * 5. Reverse list (I and R)
  * 
- * Reference
+ * Reference(s):
+ * https://leetcode.com/articles/reverse-linked-list/
  */
 public class SinglyLinkedList {
 	
@@ -76,15 +77,6 @@ public class SinglyLinkedList {
 		}
 	}
 	
-	/*
-	 * 1. Initialize prev and next pointers to null intially
-	 * Assign head to curr pointer
-	 * while iterating through each of the nodes of the list, change
-	 * 	 currunt's next to prev
-	 * 	 prev to curr
-	 * 	 curr to next
-	 * Mark head to prev
-	 */
 	public SLLNode reverseI(SLLNode head) {
 		
 		SLLNode curr = head;
