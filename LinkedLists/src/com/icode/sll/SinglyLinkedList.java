@@ -4,14 +4,15 @@ package com.icode.sll;
  * 
  * Basic SLL functions:
  * 
- * 1. Push and element in front 
- * 2. Push and element in end
+ * 1. Push/Add an element in front 
+ * 2. Push/Add an element in end
  * 3. Get list count (I and R)
  * 4. Display elements (head to tail)
  * 5. Reverse list (I and R)
  * 
  * Reference(s):
- * https://leetcode.com/articles/reverse-linked-list/
+ * Reverse (I): https://leetcode.com/articles/reverse-linked-list/
+ * Reverse (L): Tail recursive method -> http://www.geeksforgeeks.org/write-a-function-to-reverse-the-nodes-of-a-linked-list/
  */
 public class SinglyLinkedList {
 	
@@ -96,13 +97,27 @@ public class SinglyLinkedList {
 	}
 	
 	public SLLNode reverseRec(SLLNode head) {
-		if(head == null || head.next == null) {
+		if(head == null) {
 			return head;
 		}
-		SLLNode temp = reverseRec(head.next);
-		head.next.next = head;
-		head.next = null;
-		return temp;
+		return reverseUtil(head, null);
+	}
+	
+	private SLLNode reverseUtil(SLLNode curr, SLLNode prev) {
+	
+		SLLNode head1 = null;
+		
+		if(curr.next == null) {
+			head1 = curr;
+			curr.next = prev;
+			return null;
+		}
+		
+		SLLNode next = curr.next;
+		curr.next = prev;
+		SLLNode temp = reverseUtil(next, curr);
+		System.out.println("New head::"+head1.data);
+		return head1;
 	}
 	
 	public static void main(String[] args) {
