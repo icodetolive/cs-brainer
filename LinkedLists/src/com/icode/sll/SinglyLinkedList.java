@@ -9,10 +9,12 @@ package com.icode.sll;
  * 3. Get list count (I and R)
  * 4. Display elements (head to tail)
  * 5. Reverse list (I and R)
+ * 6. Delete a node given only reference to that
  * 
  * Reference(s):
  * Reverse (I): https://leetcode.com/articles/reverse-linked-list/
  * Reverse (L): Tail recursive method -> http://www.geeksforgeeks.org/write-a-function-to-reverse-the-nodes-of-a-linked-list/
+ * Delete node: http://buttercola.blogspot.com/2015/09/leetcode-delete-node-in-linked-list.html
  */
 public class SinglyLinkedList {
 	
@@ -100,24 +102,38 @@ public class SinglyLinkedList {
 		if(head == null) {
 			return head;
 		}
-		return reverseUtil(head, null);
+		head =  reverseUtil(head, null);
+		return head;
 	}
 	
 	private SLLNode reverseUtil(SLLNode curr, SLLNode prev) {
 	
-		SLLNode head1 = null;
+		SLLNode head = null;
 		
+		//if it is the only node or it is the last node
 		if(curr.next == null) {
-			head1 = curr;
+			head = curr;
 			curr.next = prev;
-			return null;
+			return head;
 		}
 		
+		//save the next node
 		SLLNode next = curr.next;
+		
+		//update curr node by connecting to prev node(s)' thread
 		curr.next = prev;
+		
 		SLLNode temp = reverseUtil(next, curr);
-		System.out.println("New head::"+head1.data);
-		return head1;
+		return temp;
+	}
+	
+	public void deleteNode(SLLNode node) {
+		if(node == null) {
+			return;
+		}
+		
+		node.data = node.next.data;
+		node.next = node.next.next;
 	}
 	
 	public static void main(String[] args) {
@@ -126,10 +142,16 @@ public class SinglyLinkedList {
 		list.pushInFront(3);
 		list.pushInFront(2);
 		list.pushInFront(1);
+		list.pushInFront(4);
+		list.pushInFront(5);
+		list.pushInFront(6);
 		System.out.println("List contents: ");
 		list.display(list.getHead());
 		SLLNode newHead = list.reverseRec(list.getHead());
 		System.out.println("After reversing: ");
 		list.display(newHead);
+		//list.deleteNode(new SLLNode(1));
+//		System.out.println("List after node deletion: ");
+//		list.display(list.getHead());
 	}
 }
