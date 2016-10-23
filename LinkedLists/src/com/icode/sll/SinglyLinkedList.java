@@ -9,7 +9,7 @@ package com.icode.sll;
  * 3. Get list count (I and R)
  * 4. Display elements (head to tail)
  * 5. Reverse list (I and R)
- * 6. Delete a node given only reference to that
+ * 6. Delete a node given only reference to the node to be deleted
  * 
  * Reference(s):
  * Reverse (I): https://leetcode.com/articles/reverse-linked-list/
@@ -127,6 +127,7 @@ public class SinglyLinkedList {
 		return temp;
 	}
 	
+	
 	public void deleteNode(SLLNode node) {
 		if(node == null) {
 			return;
@@ -147,11 +148,12 @@ public class SinglyLinkedList {
 		list.pushInFront(6);
 		System.out.println("List contents: ");
 		list.display(list.getHead());
-		SLLNode newHead = list.reverseRec(list.getHead());
-		System.out.println("After reversing: ");
-		list.display(newHead);
-		//list.deleteNode(new SLLNode(1));
-//		System.out.println("List after node deletion: ");
-//		list.display(list.getHead());
+//		SLLNode newHead = list.reverseRec(list.getHead());
+//		System.out.println("After reversing: ");
+//		list.display(newHead);
+		System.out.println("After deleting a node....");
+		list.deleteNode(list.getHead().next.next);
+		System.out.println("List contents are:: ");
+		list.display(list.getHead());
 	}
 }
