@@ -1,5 +1,11 @@
 package com.icode.sll;
 
+/*
+ * @Author Sugandha 
+ * 
+ * Reference: http://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/
+ */
+
 public class LLPalindromeCheck {
 
 	public static void main(String[] args) {
