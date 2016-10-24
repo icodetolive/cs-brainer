@@ -61,12 +61,19 @@ public class CycleDetection {
 		return false;
 	}
 	
+	/*Algorithm: 
+	 * 1. Find the collision point in the loop
+	 * 2. Then move two pointers at the same speed - one starts from the head of the linked list,
+	 *    while the other starts from the collision node. 
+	 * 3. The next collision is the entrance of the loop.
+	 */
+
 	public static SLLNode fetchStartingNodeOfCycle(SLLNode head) {
 		  if(head == null) {
 	            return null;
 	        }
 	        
-	        SLLNode temp = hasCycleCustom(head);
+	        SLLNode temp = findCollisionPoint(head);
 	        
 	        //check if there is a cycle
 	        if(temp == null || temp.next == null) {
@@ -83,7 +90,7 @@ public class CycleDetection {
 	        return slow;
 	    }
 	
-	private static SLLNode hasCycleCustom(SLLNode head) {
+	private static SLLNode findCollisionPoint(SLLNode head) {
 		SLLNode slow = head;
 		SLLNode fast = head;
 		
@@ -98,5 +105,6 @@ public class CycleDetection {
 		
 		return fast;
 	}
-	  
+	
+	 
 }
