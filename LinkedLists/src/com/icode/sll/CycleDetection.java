@@ -30,13 +30,16 @@ public class CycleDetection {
 
 //		boolean result = hasCycle(head);
 //		System.out.println("Linked list has cycle? ::"+result);
-		SLLNode result = fetchStartingNodeOfCycle(head);
-		if(result != null) {
-			System.out.println("The cycle starts at: "+result.data);
-		}
-		else {
-			System.out.println("The list doesn't contain cycle!");
-		}
+//		SLLNode result = fetchStartingNodeOfCycle(head);
+//		if(result != null) {
+//			System.out.println("The cycle starts at: "+result.data);
+//		}
+//		else {
+//			System.out.println("The list doesn't contain cycle!");
+//		}
+		
+		int result = calculateLength(head);
+		System.out.println();
 	}
 
 	
@@ -106,5 +109,43 @@ public class CycleDetection {
 		return fast;
 	}
 	
-	 
+	/*
+	 * Algorithm:
+	 * 1. Find the collision point 
+	 * 2. From the collision point in the cycle, use two pointers - 
+	 *    One moves one step at a time while the other moves two at a time. 
+	 * 3. Until they meet again, the number of steps is the length of the cycle. 
+	 */
+	
+	public static int calculateLength(SLLNode head) {
+		
+		if(head == null) {
+			return -1;
+		}
+		
+		SLLNode temp = findCollisionPoint(head);
+		
+		 //check if there is a cycle
+        if(temp == null || temp.next == null) {
+        	return -1;
+        }
+//        
+		SLLNode fast = temp;
+		SLLNode slow = fast;
+		int counter = 0;
+		
+		slow = slow.next;
+		fast = fast.next.next;
+		counter++;	
+		
+		while(slow != fast) {
+			slow = slow.next;
+			fast = fast.next.next;
+			counter++;
+		}
+		
+		System.out.println("--"+counter);
+		return counter;
+	}
+	  
 }
