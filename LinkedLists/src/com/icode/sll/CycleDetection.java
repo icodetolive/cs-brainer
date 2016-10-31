@@ -11,7 +11,8 @@ package com.icode.sll;
  * 
  * Reference(s): 
  * Detect cycle: http://buttercola.blogspot.com/2014/08/leetcode-linked-list-cycle.html
- * Fetch starting node of cycle and length of cycle: http://buttercola.blogspot.com/2014/08/leetcode-linked-list-cycle-ii.html
+ * Fetch starting node of cycle: http://buttercola.blogspot.com/2014/08/leetcode-linked-list-cycle-ii.html
+ * Calculate length of a cycle: Refer relevant code piece 
  * Remove loop: http://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/
  */
 public class CycleDetection {
