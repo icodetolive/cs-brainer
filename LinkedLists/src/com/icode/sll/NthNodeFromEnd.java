@@ -35,7 +35,12 @@ public class NthNodeFromEnd {
 		}
 	}
 	
-	//Using length technique
+	
+	/*
+	 * Algorithm:  Length technique
+	 * 1. Calculate length of list
+	 * 2. The nth node is: len-n+1th
+	 */
 	public static SLLNode nthNodeFromEnd(SLLNode head, int length, int n) {
 		
 		if(head == null || length < n) {
@@ -64,6 +69,12 @@ public class NthNodeFromEnd {
 		return head;
 	}
 	
+	/*
+	 * Algorithm: Two pointer technique
+	 * 1. Use fast and slow pointers. 
+	 * 2. The fast pointer is n steps ahead of the slow pointer. 
+	 * 3. When the fast reaches the end, the slow pointer points at the previous element of the target element. 
+	 */
 	public static SLLNode nthNodeFromEnd2Pointer(SLLNode head, int n) {
 		
 		if(head == null) {
