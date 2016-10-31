@@ -22,9 +22,10 @@ public class NthNodeFromEnd {
 		list.pushInEnd(4);
 		list.pushInEnd(5);
 		SLLNode head = list.getHead();
-		int n = 2;
+		int n = 5;
 		
-		SLLNode newHead = nthNodeFromEnd(head,list.getCount(head),n);
+//		SLLNode newHead = nthNodeFromEnd(head,list.getCount(head),n);
+		SLLNode newHead = nthNodeFromEnd2Pointer(head, n);
 		if(newHead != null) {
 			System.out.println("The new list contents are:");
 			list.display(newHead);
@@ -36,6 +37,7 @@ public class NthNodeFromEnd {
 	
 	//Using length technique
 	public static SLLNode nthNodeFromEnd(SLLNode head, int length, int n) {
+		
 		if(head == null || length < n) {
 			return null;
 		}
@@ -59,6 +61,37 @@ public class NthNodeFromEnd {
 			prev.next = curr.next;
 		}
 		
+		return head;
+	}
+	
+	public static SLLNode nthNodeFromEnd2Pointer(SLLNode head, int n) {
+		
+		if(head == null) {
+			return null;
+		}
+		
+		int i = 0;
+		SLLNode slow = head;
+		SLLNode fast = head;
+		
+		//move the fast pointer n nodes ahead of head
+		while(i < n) {
+			fast = fast.next;
+			i++;
+		}
+		
+		//if n == length of the list
+		if(fast == null) {
+			head = head.next;
+			return head;
+		}
+		
+		while(fast.next != null) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+		
+		slow.next = slow.next.next;
 		return head;
 	}
 }
