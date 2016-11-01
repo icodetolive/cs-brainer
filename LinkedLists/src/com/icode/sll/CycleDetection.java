@@ -28,7 +28,7 @@ public class CycleDetection {
 		
 		//create loop for testing
 //		1-2-3-4-5-2
-//		list.getHead().next.next.next.next.next = head.next;
+		list.getHead().next.next.next.next.next = head.next;
 
 //		boolean result = hasCycle(head);
 //		System.out.println("Linked list has cycle? ::"+result);
