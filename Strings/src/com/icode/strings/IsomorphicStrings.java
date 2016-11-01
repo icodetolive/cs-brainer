@@ -1,14 +1,20 @@
 package com.icode.strings;
 
+/*
+ * @Author Sugandha
+ * 
+ */
+
 import java.util.HashMap;
-import java.util.Map;
 
 public class IsomorphicStrings {
 
 	public static void main(String[] args) {
 		
-		String s = "eg";
-		String t = "add";
+		String s = "xxy";
+		String t = "aab";
+		
+		//not isomorphic are: xyz and aab
 		
 		IsomorphicStrings strings = new IsomorphicStrings();
 		boolean result = strings.areIsomorphic(s, t);
@@ -22,9 +28,7 @@ public class IsomorphicStrings {
 		
 		
     public boolean areIsomorphic(String s, String t) {
-        if((s == null && t == null) || (s.length() == 0 && t.length() == 0 )) {
-            return true;
-        }
+       
         if(s == null || t == null) {
             return false;
         }
@@ -37,30 +41,26 @@ public class IsomorphicStrings {
         for(int i = 0; i< s.length(); i++) {
             char c1 = s.charAt(i);
             char c2 = t.charAt(i);
-            
-            Character key = getKey(map, c2);
-            if(key != null && key != c1) {
-                return false;
-            }
-            else if(map.containsKey(c1)) {
-                if(map.get(c1) != c2) {
+          
+           // Check if the value of this key = current char of string2(t)
+           if(map.containsKey(c1)) {
+            	char temp = map.get(c1);
+                if(temp != c2) {
                     return false;
                 }
             }
+           //check if the value of this key is also not present already
             else {
-                map.put(c1, c2);
+            	if(map.containsValue(c2)) {
+            		return false;
+            	}
+            	else {
+            		//both key-value characters are unique. Hence, insert and map them
+            		map.put(c1, c2);
+            	}
             }
         }
 		return true;
-    }
-		    
-    public Character getKey(HashMap<Character, Character> map, char target) {
-        for(Map.Entry entry: map.entrySet()) {
-            if(entry.getValue().equals(target)) {
-                return (Character)entry.getKey();
-            }
-        }
-        return null;
     }
 }
 
