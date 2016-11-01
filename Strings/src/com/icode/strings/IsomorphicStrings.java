@@ -3,14 +3,14 @@ package com.icode.strings;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Isomorphic {
+public class IsomorphicStrings {
 
 	public static void main(String[] args) {
 		
 		String s = "eg";
 		String t = "add";
 		
-		Isomorphic strings = new Isomorphic();
+		IsomorphicStrings strings = new IsomorphicStrings();
 		boolean result = strings.areIsomorphic(s, t);
 		if(result) {
 			System.out.println("Strings are isomorphic");
